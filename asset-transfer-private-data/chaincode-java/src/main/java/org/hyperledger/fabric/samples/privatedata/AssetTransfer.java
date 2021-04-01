@@ -254,14 +254,17 @@ public final class AssetTransfer implements ContractInterface {
             throw new ChaincodeException(errorMessage, AssetTransferErrors.INCOMPLETE_INPUT.toString());
         }
 
-        byte[] transientAssetJSON = transientMap.get("asset_properties");
+        
         final String assetID;
         final String type;
         final String color;
         int appraisedValue = 0;
         int size = 0;
         try {
-            JSONObject json = new JSONObject(new String(transientAssetJSON, UTF_8));
+            // byte[] transientAssetJSON = transientMap.get("asset_properties");
+            // JSONObject json = new JSONObject(new String(transientAssetJSON, UTF_8));
+            String transientAssetJSON = transientMap.get("asset_properties");
+            JSONObject json = new JSONObject(transientAssetJSON);
             Map<String, Object> tMap = json.toMap();
 
             type = (String) tMap.get("objectType");
