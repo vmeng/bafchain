@@ -1,7 +1,7 @@
 [
  {
    "name": "assetCollection",
-   "policy": "OR('Org1MSP.member', 'Org2MSP.member')",
+   "policy": "OR('carrierMSP.member', 'manufacturerMSP.member')",
    "requiredPeerCount": 1,
    "maxPeerCount": 1,
    "blockToLive":1000000,
@@ -9,27 +9,27 @@
    "memberOnlyWrite": true
 },
  {
-   "name": "Org1MSPPrivateCollection",
-   "policy": "OR('Org1MSP.member')",
+   "name": "carrierMSPPrivateCollection",
+   "policy": "OR('carrierMSP.member')",
    "requiredPeerCount": 0,
    "maxPeerCount": 1,
    "blockToLive":3,
    "memberOnlyRead": true,
    "memberOnlyWrite": false,
    "endorsementPolicy": {
-     "signaturePolicy": "OR('Org1MSP.member')"
+     "signaturePolicy": "OR('carrierMSP.member')"
    }
  },
  {
-   "name": "Org2MSPPrivateCollection",
-   "policy": "OR('Org2MSP.member')",
+   "name": "manufacturerMSPPrivateCollection",
+   "policy": "OR('manufacturerMSP.member')",
    "requiredPeerCount": 0,
    "maxPeerCount": 1,
    "blockToLive":3,
    "memberOnlyRead": true,
    "memberOnlyWrite": false,
    "endorsementPolicy": {
-     "signaturePolicy": "OR('Org2MSP.member')"
+     "signaturePolicy": "OR('manufacturerMSP.member')"
    }
   }
 ]
